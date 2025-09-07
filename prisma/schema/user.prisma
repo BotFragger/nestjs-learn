@@ -4,7 +4,11 @@ model User {
   email    String @unique
   password String
 
-  role     Role   @default(staff)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  role        Role          @default(staff)
   transaction Transaction[]
 }
 
