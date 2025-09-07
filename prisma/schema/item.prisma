@@ -1,0 +1,14 @@
+model Item {
+  id        String    @id @default(uuid())
+  name      String
+  price     Decimal
+  stock     Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  //relation
+  categoryId String
+  category   Category          @relation(fields: [categoryId], references: [id])
+  items      TransactionItem[]
+}
